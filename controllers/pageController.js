@@ -57,6 +57,7 @@ module.exports = {
     }
   }, */
     const { username, password } = req.body;
+    console.log(username);
 
     try {
       const usuario = await Usuario.findOne({ username });
