@@ -10,7 +10,7 @@ const DB_CONNECTION_STRING =
 const uri =
   "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority";
 
-const HOST = "https://mifaber-ea429db0ea4c.herokuapp.com/";
+const HOST = "https://mifaberpro-891ceb77b445.herokuapp.com/";
 
 module.exports = {
   CLAVE_SECRETA,
