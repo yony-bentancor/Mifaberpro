@@ -1,0 +1,7 @@
+# Node.js dependencies
+.env
+/node_modules
+
+# Logsj
+logs
+*.log
