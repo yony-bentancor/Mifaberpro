@@ -8,6 +8,8 @@ module.exports = () => {
   });
 
   mongoose.connection
-    .once("open", () => console.log("Conexión establecida satisfactoriamente"))
+    .once("open", () =>
+      console.log("Conexión establecida OK satisfactoriamente")
+    )
     .on("error", (error) => console.error("Error en la conexión", error));
 };
