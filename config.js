@@ -1,17 +1,19 @@
-// config.js
-require("dotenv").config(); // Cargar variables de entorno desde el archivo .env
+const CLAVE_SECRETA =
+  process.env.CLAVE_SECRETA || "dulce29"; /* "lunes23deagosto"; */
 
-const CLAVE_SECRETA = process.env.CLAVE_SECRETA; /*  || "dulce29"; */
-const PORT = process.env.PORT; /*  || 80; */
+const PORT = process.env.PORT || 80; /*3001 */
+
 const DB_CONNECTION_STRING =
   process.env.DB_CONNECTION_STRING ||
-  "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority"; /* "mongodb://localhost/proyecto" */
 
 const uri =
   "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority";
 
 const HOST = "https://mifaberpro-891ceb77b445.herokuapp.com/";
 
+/* "http://localhost";
+ */
 module.exports = {
   CLAVE_SECRETA,
   PORT,
