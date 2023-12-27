@@ -41,7 +41,7 @@ module.exports = {
         // Nuevo código para el caso de usuario "ADMINISTRADOR"
         try {
           const users = await Usuario.find().sort({ username: 1 });
-          return res.render("home.njk");
+          return res.redirect("home.njk");
         } catch (error) {
           return res.status(500).json({ error: error.message });
         }
