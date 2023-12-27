@@ -12,52 +12,7 @@ module.exports = {
   },
 
   login: async (req, res) => {
-    /* 
-    try {
-      const usuario = req.body.usuario;
-      const newUsuario = await Usuario.findOne({ username: usuario });
-
-      if (!newUsuario) {
-        return res.redirect(
-          "https://mifaber-ea429db0ea4c.herokuapp.com/?error=UsuarioIncorrecto"
-        );
-      }
-
-      const match = await bcrypt.compare(usuario.password, newUsuario.hash);
-
-      if (!match) {
-        return res.redirect(
-          "https://mifaber-ea429db0ea4c.herokuapp.com/?error=ContraseñaIncorrecta"
-        );
-      }
-
-      const usuarioRes = {
-        username: newUsuario.username,
-        telefono: newUsuario.telefono,
-        direccion: newUsuario.direccion,
-        email: newUsuario.email,
-        id: newUsuario.id,
-      };
-
-      if (usuarioRes.username === "ADMINISTRADOR") {
-        const token = jwt.sign(usuarioRes, CLAVE_SECRETA);
-        const users = await Usuario.find().sort({ username: 1 });
-
-        // Nuevo código para el caso de usuario "ADMINISTRADOR"
-        try {
-          return res.render("home.njk");
-        } catch (error) {
-          return res.status(500).json({ error: error.message });
-        }
-      }
-
-      // Agrega lógica adicional aquí para usuarios que no son "ADMINISTRADOR"
-    } catch (error) {
-      return res.status(500).json({ error: error.message });
-    }
-  }, */
     const { username, password } = req.body;
-    console.log(username);
 
     try {
       const usuario = await Usuario.findOne({ username });
