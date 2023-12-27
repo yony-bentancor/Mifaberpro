@@ -1,6 +1,6 @@
 const Usuario = require("../models/Usuario");
 const bcrypt = require("bcrypt");
-/* const jwt = require("jsonwebtoken"); */
+const jwt = require("n");
 const { CLAVE_SECRETA } = require("../config");
 
 module.exports = {
@@ -12,26 +12,26 @@ module.exports = {
   },
 
   login: async (req, res) => {
-    const { username, password } = req.body;
-
     try {
-      const usuario = await Usuario.findOne({ username });
+      const userInfo = req.body;
+      password = userInfo.username;
+      const hash = await bcrypt.hash(password, saltRounds);
+      const newUser = await Usuario.create({
+        username: userInfo.username,
+        hash: hash,
+      });
 
-      if (usuario) {
-        // Comparar la contraseña proporcionada con la contraseña almacenada hasheada
-        const passwordMatch = await bcrypt.compare(password, usuario.password);
+      const userRes = {
+        username: newUser.username,
+        id: newUser.id,
+      };
+      const token = jwt.sign(userRes, CLAVE_SECRETA);
 
-        if (passwordMatch) {
-          res.send("¡Inicio de sesión exitoso!");
-        } else {
-          res.send("Credenciales incorrectas");
-        }
-      } else {
-        res.send("Credenciales incorrectas");
-      }
+      res.redirect("/home");
+
+      /*res.status(201).json({ useer: userRes, token: token });*/
     } catch (error) {
-      console.error(error);
-      res.status(500).send("Error en el servidor");
+      res.status(400).json({ error: error.message });
     }
   },
 };

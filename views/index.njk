@@ -16,14 +16,29 @@
             <div id="content">
                 <div id="login">
                     <div class="form-container">
-                        <form action="/login" method="post">
-                            <label for="username">Usuario:</label>
-                            <input type="text" id="username" name="username" required>
+                        <form  method="post" action="/login">
 
-                            <label for="password">Contraseña:</label>
-                            <input type="password" id="password" name="password" required>
+                            <div class="col-12">
 
-                            <button type="submit">Iniciar Sesión</button>
+                                <label for="username" class="form-label">USUARIO</label>
+
+                                <input type="text" name="username" class="form-control1"  required="true"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="password" class="form-label">CONTRASEÑA</label>
+
+                                <input type="password" name="password" class="form-control1" required="true"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" name="button" class="btninicio">
+                  Iniciar sesión
+                </button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
